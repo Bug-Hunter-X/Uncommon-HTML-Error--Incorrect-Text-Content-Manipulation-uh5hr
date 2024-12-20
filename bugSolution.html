@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Error Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This is some text.
+  </div>
+
+  <script>
+    // Correct way to append or change the innerHTML, handling potential HTML tags
+    document.getElementById("myDiv").innerHTML += "<br>This is new text added.";
+    document.getElementById("myDiv").innerHTML = "<p>This replaces existing text</p>";
+
+    // Sanitization example (crucial for security):
+    let userProvidedText = "<script>alert('XSS')</script>"; // Dangerous input
+    let sanitizedText = DOMPurify.sanitize(userProvidedText); // Sanitize using a library like DOMPurify
+    document.getElementById("myDiv").innerHTML += "<p>Sanitized input: " + sanitizedText + "</p>";
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+</body>
+</html>
