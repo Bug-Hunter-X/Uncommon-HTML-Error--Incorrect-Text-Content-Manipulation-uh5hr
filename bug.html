@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Error</title>
+</head>
+<body>
+  <div id="myDiv">
+    This is some text.
+  </div>
+
+  <script>
+    // Incorrect way to change the text content
+    document.getElementById("myDiv").textContent = "New text";
+
+    // Correct way to append or change the innerHTML
+    document.getElementById("myDiv").innerHTML += "<br>This is new text added.";
+    document.getElementById("myDiv").innerHTML = "<p>This replaces existing text</p>";
+  </script>
+</body>
+</html>
